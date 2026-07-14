@@ -1,0 +1,30 @@
+# ══════════════════════════════════════════════════════
+# Config Collector Bot v7.0 — requirements.txt
+# ══════════════════════════════════════════════════════
+
+# Core Telegram framework (job-queue / APScheduler)
+python-telegram-bot[job-queue]==22.6
+
+# Async HTTP client — fetch sources + GitHub API
+aiohttp==3.13.5
+
+# Async SQLite driver
+aiosqlite==0.20.0
+
+# Retry logic with exponential back-off
+tenacity==9.0.0
+
+# پنل تحت وب (dashboard.py) — فقط پنل ادمین (طبق درخواست صریح ادمین، پنل
+# کاربر و لینک ساب کاملاً حذف شدند). اجرا در یک پروسه‌ی جدا کنار خودِ بات
+# (نگاه کنید به start.sh) و read-only از همان bot_database.db.
+flask==3.1.0
+
+# ── حذف‌شده‌ها ──────────────────────────────────────
+# geoip2          REMOVED — replaced by CountryDetector (regex/flag/city heuristics)
+# aiodns          REMOVED — incompatible with aiohttp 3.13.5
+# pytz            REMOVED — replaced by Python 3.9+ zoneinfo
+# aiohttp-socks   REMOVED در v7.0 — همراه با حذف کامل سیستم Real Ping Tester
+#                 (که Xray-core و تونل SOCKS محلی نیاز داشت)، این وابستگی
+#                 هم دیگر لازم نیست.
+# hmac/hashlib/base64/socket/ipaddress/threading — همه built-in هستند،
+# نیازی به نصب ندارند.
